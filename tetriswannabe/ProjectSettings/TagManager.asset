@@ -15,6 +15,7 @@ TagManager:
   - Flower9
   - Flower10
   - Wall
+  - FailZone
   layers:
   - Default
   - TransparentFX

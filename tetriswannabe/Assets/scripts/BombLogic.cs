@@ -6,7 +6,7 @@ using UnityEngine;
 public class BombLogic : MonoBehaviour
 {
 
-   [Serialize] public bool explode = false;
+   public bool explode = false;
 
     Collider2D BombCollider;
 
@@ -28,8 +28,13 @@ public class BombLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        if (collision.gameObject.tag != "Wall")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    
+      
     }
 
 }

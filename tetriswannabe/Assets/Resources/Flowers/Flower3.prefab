@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6279234102542470466}
   - component: {fileID: 2147873685732116866}
   - component: {fileID: 8764411286077945761}
+  - component: {fileID: 3444978137162192070}
   m_Layer: 0
   m_Name: Flower3
   m_TagString: Flower3
@@ -161,3 +162,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136c7805c16306a4b810a4b9e9a3a072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnNewBall: 0
+--- !u!114 &3444978137162192070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041194891736046108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43531e3a63ab4ec47bba191184c940aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlowerUpNum: 3

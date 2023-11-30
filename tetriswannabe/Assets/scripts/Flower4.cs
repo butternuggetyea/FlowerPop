@@ -49,7 +49,7 @@ public class Flower4 : MonoBehaviour
     {
         if (spawnNewBall) 
         {
-            Score.TotalScore += 100;
+            Score.ActiveScore += 100;
             Instantiate(Flowers[4], new Vector3(ObjX,ObjY,0), Quaternion.Euler(0, 0, 0));
         }
         Destroy(gameObject);

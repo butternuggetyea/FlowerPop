@@ -36,7 +36,7 @@ public class Dropper : MonoBehaviour
         {
             StartCoroutine(Next());
             FlowerSpawn();
-            
+
         }
 
         if (Input.GetKey(KeyCode.D)) 
@@ -55,7 +55,7 @@ public class Dropper : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.B)) 
+        if (Input.GetKeyDown(KeyCode.B)) 
         {
             Instantiate(Bomb, new Vector3(FlowerPos, 4.9f, 0), Quaternion.Euler(0, 0, 0));
         }

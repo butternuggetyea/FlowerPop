@@ -11,21 +11,21 @@ public class Score : MonoBehaviour
 
     [SerializeField] public static int HighScore;
 
-    [SerializeField] public static int TotalScore;
+    [SerializeField] public static int ActiveScore;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ActiveScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (TotalScore>HighScore) 
+        if (ActiveScore > HighScore) 
         {
-            HighScore = TotalScore;
+            HighScore = ActiveScore;
         }
-        score.text = "Current Score:" + TotalScore.ToString();
+        score.text = "Current Score:" + ActiveScore.ToString();
         HighScoreTXT.text = "High Score:" + HighScore.ToString();
     }
 }
