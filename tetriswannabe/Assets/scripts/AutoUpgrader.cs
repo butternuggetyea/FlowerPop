@@ -31,7 +31,7 @@ public class AutoUpgrader : MonoBehaviour
                 Instantiate(Flowers[FlowerUpNum], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.Euler(0, 0, 0)) ;
                 Destroy(gameObject);
             }
-            yield return new WaitForSeconds(UpgradeTimerAmt);
+            yield return new WaitForSecondsRealtime(UpgradeTimerAmt);
         }
     }
 
