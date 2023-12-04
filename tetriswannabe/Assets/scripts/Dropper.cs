@@ -54,7 +54,7 @@ public class Dropper : MonoBehaviour
         {
             if (FlowerPos <= 3.3)
             {
-                FlowerPos += 0.005f;
+                FlowerPos += 0.05f;
             }
         }
 
@@ -62,7 +62,7 @@ public class Dropper : MonoBehaviour
         {
             if (FlowerPos >= -3.3)
             {
-                FlowerPos -= 0.005f;
+                FlowerPos -= 0.05f;
             }
         }
 
