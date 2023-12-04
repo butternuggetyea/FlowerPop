@@ -15,12 +15,17 @@ public class Dropper : MonoBehaviour
     public int now;
     public int next = 0;
 
+    private bool CanDrop = true;
+
+    public static int BombsHeld = 0;
+
     public GameObject Bomb;
 
     //private static List<GameObject> UsingNext;
     // Start is called before the first frame update
     void Start()
     {
+        BombsHeld = PlayerPrefs.GetInt("BombsHeld");
         FlowerIcon = new List<GameObject>(Resources.LoadAll<GameObject>("FlowerIcon"));
         Flowers = new List<GameObject>(Resources.LoadAll<GameObject>("Flowers"));
         // UsingNext = new List<GameObject>();
@@ -31,17 +36,23 @@ public class Dropper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         //Debug.Log(next);
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
-            StartCoroutine(Next());
-            FlowerSpawn();
+            if (CanDrop)
+            {
+                CanDrop = false;
+                StartCoroutine(Next());
+                FlowerSpawn();
+                
+            }
 
         }
 
         if (Input.GetKey(KeyCode.D)) 
         {
-            if (FlowerPos <= 4.6)
+            if (FlowerPos <= 3.3)
             {
                 FlowerPos += 0.005f;
             }
@@ -49,7 +60,7 @@ public class Dropper : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (FlowerPos >= -4.6)
+            if (FlowerPos >= -3.3)
             {
                 FlowerPos -= 0.005f;
             }
@@ -57,7 +68,12 @@ public class Dropper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.B)) 
         {
-            Instantiate(Bomb, new Vector3(FlowerPos, 4.9f, 0), Quaternion.Euler(0, 0, 0));
+            if (BombsHeld > 0)
+            {
+                Instantiate(Bomb, new Vector3(FlowerPos, 4.9f, 0), Quaternion.Euler(0, 0, 0));
+                BombsHeld--;
+                PlayerPrefs.SetInt("BombsHeld", BombsHeld);
+            }
         }
 
     }
@@ -86,7 +102,7 @@ public class Dropper : MonoBehaviour
 
             if (i == 1)
             {
-                
+                CanDrop = true;
                 now = next;
             }
             yield return new WaitForSeconds(0.5f);

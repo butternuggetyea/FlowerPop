@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoUpgrader : MonoBehaviour
 {
-    public float UpgradeTimerAmt = 60f;
+    public static float UpgradeTimerAmt = 30f;
     public int FlowerUpNum;
     private static List<GameObject> Flowers;
     // Start is called before the first frame update

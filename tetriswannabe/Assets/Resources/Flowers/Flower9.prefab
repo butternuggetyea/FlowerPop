@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1108352211295052638}
   - component: {fileID: 4990673655599584593}
   - component: {fileID: 4199666890571337227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flower9
   m_TagString: Flower9
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.53, y: -3.83, z: -0.08056323}
-  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
+  m_LocalScale: {x: 0.31649148, y: 0.31649148, z: 0.31649148}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 579606e92edcfdb48bab38533a7f14fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 188d5f30aa9c79a4baa2b0f2cbe1d7b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.6, y: -0.18}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5.5
 --- !u!50 &4990673655599584593
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6e96171a43fdb45a4e1ade8a7ce481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnNewBall: 0

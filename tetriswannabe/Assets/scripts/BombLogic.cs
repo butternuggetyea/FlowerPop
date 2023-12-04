@@ -33,8 +33,6 @@ public class BombLogic : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-    
-      
     }
 
 }

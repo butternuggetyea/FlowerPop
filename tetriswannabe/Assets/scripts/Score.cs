@@ -9,6 +9,14 @@ public class Score : MonoBehaviour
 
     public TMP_Text HighScoreTXT;
 
+    public TMP_Text DropperTXT;
+
+    public TMP_Text MouseClickTxt;
+
+    Dropper dropper;
+
+    MouseClick mouseClick;
+
     [SerializeField] public static int HighScore;
 
     [SerializeField] public static int ActiveScore;
@@ -16,6 +24,8 @@ public class Score : MonoBehaviour
     void Start()
     {
         ActiveScore = 0;
+        HighScore = PlayerPrefs.GetInt("HighScore");
+        //HighScore = 0;
     }
 
     // Update is called once per frame
@@ -24,8 +34,14 @@ public class Score : MonoBehaviour
         if (ActiveScore > HighScore) 
         {
             HighScore = ActiveScore;
+            PlayerPrefs.SetInt("HighScore", HighScore);
         }
         score.text = "Current Score:" + ActiveScore.ToString();
         HighScoreTXT.text = "High Score:" + HighScore.ToString();
+
+        if (MouseClick.FlowerPopsHeld > 0) { }
+
+        if (Dropper.BombsHeld > 0) { }
+
     }
 }

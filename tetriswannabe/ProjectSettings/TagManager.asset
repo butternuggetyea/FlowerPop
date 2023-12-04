@@ -16,6 +16,10 @@ TagManager:
   - Flower10
   - Wall
   - FailZone
+  - BuyBomb
+  - BuyFlowerPop
+  - GameReturn
+  - BuyTimeUp
   layers:
   - Default
   - TransparentFX
@@ -24,7 +28,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Flower
   - 
   - 
   - 

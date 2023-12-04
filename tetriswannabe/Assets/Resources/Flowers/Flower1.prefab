@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2307625558977959806}
   - component: {fileID: 373639197527951140}
   - component: {fileID: -8166800920657608642}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flower1
   m_TagString: Flower1
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.67, y: -4.28, z: -0.08056323}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.049555846, y: 0.049555846, z: 0.049555846}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c480eaaf9ea0d4d499137f87508e5969, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f85e43c1f3747d544a3bbf00d6c37534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5
 --- !u!50 &2307625558977959806
 Rigidbody2D:
   serializedVersion: 4
