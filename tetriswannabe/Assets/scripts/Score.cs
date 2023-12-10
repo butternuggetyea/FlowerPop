@@ -17,12 +17,12 @@ public class Score : MonoBehaviour
 
     MouseClick mouseClick;
 
-    [SerializeField] public static int HighScore;
-
-    [SerializeField] public static int ActiveScore;
+    public static int HighScore;
+    public static int ActiveScore;
     // Start is called before the first frame update
     void Start()
     {
+       
         ActiveScore = 0;
         HighScore = PlayerPrefs.GetInt("HighScore");
         //HighScore = 0;

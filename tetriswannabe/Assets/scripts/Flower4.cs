@@ -49,6 +49,7 @@ public class Flower4 : MonoBehaviour
     {
         if (spawnNewBall) 
         {
+            audioscript.playSound = true;
             Score.ActiveScore += 100;
             Instantiate(Flowers[4], new Vector3(ObjX,ObjY,0), Quaternion.Euler(0, 0, 0));
         }

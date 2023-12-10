@@ -13,14 +13,16 @@ public class ShopPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      shopPoints = PlayerPrefs.GetInt("shopPoints");
+        shopPoints = PlayerPrefs.GetInt("shopPoints");
         shopPoints += (Score.ActiveScore / 1000);
+        PlayerPrefs.SetInt("shopPoints", shopPoints);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetInt("shopPoints", shopPoints);
+        shopPoints = PlayerPrefs.GetInt("shopPoints");
         Points.text = "Shop Points: " + shopPoints.ToString();
     }
 }

@@ -11,13 +11,15 @@ public class Dropper : MonoBehaviour
     deleteSelf DeleteSelf;
     private static List<GameObject> Flowers;
     private static List<GameObject> FlowerIcon;
-    public float FlowerPos = 0;
+    public float FlowerPos = 1;
     public int now;
     public int next = 0;
 
     private bool CanDrop = true;
 
-    public static int BombsHeld = 0;
+    public static int BombsHeld = 1;
+
+    private int Firstrun;
 
     public GameObject Bomb;
 
@@ -25,6 +27,14 @@ public class Dropper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Firstrun = PlayerPrefs.GetInt("Firstrun");
+        if (Firstrun == 0)
+        {
+            PlayerPrefs.SetInt("BombsHeld", BombsHeld);
+            Firstrun = 1;
+            PlayerPrefs.SetInt("Firstrun", Firstrun);
+        }
+
         BombsHeld = PlayerPrefs.GetInt("BombsHeld");
         FlowerIcon = new List<GameObject>(Resources.LoadAll<GameObject>("FlowerIcon"));
         Flowers = new List<GameObject>(Resources.LoadAll<GameObject>("Flowers"));

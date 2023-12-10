@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MouseClick : MonoBehaviour
 {
-    public static int FlowerPopsHeld = 0;
+    public static int FlowerPopsHeld = 1;
     Collider2D MouseCol;
     Transform MouseObj;
+
+    private bool htp = true;
+    public TMP_Text HTP;
+    private int FirstRun;
 
     Dropper dropper;
     ShopPoints shopPoints;
@@ -16,10 +21,19 @@ public class MouseClick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       FlowerPopsHeld = PlayerPrefs.GetInt("FlowerPopsHeld");
+        FirstRun = PlayerPrefs.GetInt("FirstRun");
+        if (FirstRun == 0)
+        {
+            PlayerPrefs.SetInt("FlowerPopsHeld", FlowerPopsHeld);
+            FirstRun = 1;
+            PlayerPrefs.SetInt("FirstRun", FirstRun);
+        }
+
+        FlowerPopsHeld = PlayerPrefs.GetInt("FlowerPopsHeld");
         MouseCol = GetComponent<Collider2D>();
         MouseObj = GetComponent<Transform>();
-    }
+        
+}
 
     // Update is called once per frame
     void Update()
@@ -38,10 +52,11 @@ public class MouseClick : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-     
-        if (collision.gameObject.layer == 7) { 
-        if (FlowerPopsHeld > 0) 
+
+        if (collision.gameObject.layer == 7)
         {
+            if (FlowerPopsHeld > 0)
+            {
                 Debug.Log("Popped");
                 Destroy(collision.gameObject);
                 FlowerPopsHeld--;
@@ -49,45 +64,14 @@ public class MouseClick : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "BuyBomb") 
+
+        if (collision.gameObject.tag == "HTP") 
         {
-            if (ShopPoints.shopPoints >= 10)
+            if (htp)
             {
-                
-                Dropper.BombsHeld++;
-                PlayerPrefs.SetInt("BombsHeld", Dropper.BombsHeld);
-                ShopPoints.shopPoints -= 10;
-                Debug.Log(Dropper.BombsHeld);
+                HTP.text = "Dropper Movement: Keys  A,D\r\nDrop Object: Key Spacebar \r\nDrop Bomb: Key B\r\nPop Flower: Mouse Left Click On Object Of Choice\r\n\r\nAuto Upgrade: The objects you place will slowly auto upgrade yeilding no points for the combine while allowing other higher combinations.\r\n\r\nFail: Careful, dont over fill your basket, if you do and a object falls over the side, Game Over. \r\n\r\nGoal: Combine two of the same objects to get points and create a bigger object. Use the points in the shop to buy upgrades. \r\n ";
             }
-        }
-
-
-        if (collision.gameObject.tag == "BuyFlowerPop")
-        {
-            if (ShopPoints.shopPoints >= 15)
-            {
-                
-                FlowerPopsHeld++;
-                PlayerPrefs.SetInt("FlowerPopsHeld", FlowerPopsHeld);
-                ShopPoints.shopPoints -= 15;
-                Debug.Log(FlowerPopsHeld);
-            }
-        }
-
-        if (collision.gameObject.tag == "BuyTimeUp") { 
-            if (ShopPoints.shopPoints >= 15)
-            {
-                
-                AutoUpgrader.UpgradeTimerAmt += 1.5f;
-                ShopPoints.shopPoints -= 15;
-                Debug.Log(AutoUpgrader.UpgradeTimerAmt);
-            }
-        }
-
-        if (collision.gameObject.tag == "GameReturn") 
-        {
-            Debug.Log("Hit");
-            SceneManager.LoadScene(1);
+            else if(htp == false){ HTP.text = " "; }
         }
 
 

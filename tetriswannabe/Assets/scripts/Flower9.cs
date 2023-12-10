@@ -49,6 +49,7 @@ public class Flower9 : MonoBehaviour
     {
         if (spawnNewBall)
         {
+            audioscript.playSound = true;
             Score.ActiveScore += 3200;
 
         }

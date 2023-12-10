@@ -8,6 +8,9 @@ public class AutoUpgrader : MonoBehaviour
     public int FlowerUpNum;
     private static List<GameObject> Flowers;
     // Start is called before the first frame update
+
+    public Animator animator;
+
     void Start()
     {
         Flowers = new List<GameObject>(Resources.LoadAll<GameObject>("Flowers"));
@@ -23,15 +26,21 @@ public class AutoUpgrader : MonoBehaviour
 
     IEnumerator UpgradeTimer()
     {
-        for (int i = 0; i <= 1; i++)
+        for (int i = 0; i <= UpgradeTimerAmt; i++)
         {
             Debug.Log(i);
-            if (i == 1)
+            if (i == UpgradeTimerAmt - 10)
             {
+                animator.Play("Popping");
+            }
+
+                if (i == UpgradeTimerAmt)
+            {
+                audioscript.playSound = true;
                 Instantiate(Flowers[FlowerUpNum], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.Euler(0, 0, 0)) ;
                 Destroy(gameObject);
             }
-            yield return new WaitForSecondsRealtime(UpgradeTimerAmt);
+            yield return new WaitForSecondsRealtime(1);
         }
     }
 

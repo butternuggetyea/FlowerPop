@@ -34,6 +34,10 @@ public class SceneController : MonoBehaviour
         SceneManager.sceneLoaded += LevelWasLoaded;
     }
 
+    private void Start()
+    {
+        ShopPoints.shopPoints += (Score.ActiveScore / 1000);
+    }
     // feed the desired scene index to load
     public void loadScene(int sceneIndex)
     {
